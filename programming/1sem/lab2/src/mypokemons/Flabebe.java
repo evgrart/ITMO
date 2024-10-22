@@ -4,7 +4,7 @@ import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
 import mymoves.flabebe.*;
 
-public class Flabebe extends Pokemon {
+public final class Flabebe extends Pokemon {
     public Flabebe(String name, int level) {
         super(name, level);
         setType(Type.FAIRY);
