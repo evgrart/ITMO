@@ -1,7 +1,7 @@
 import ru.ifmo.se.pokemon.Battle;
 import mypokemons.*;
 
-public class Fight {
+public final class Fight {
     public static void main(String[] args) {
         Battle fight = new Battle();
         fight.addAlly(new Croagunk("Сro", 3));
