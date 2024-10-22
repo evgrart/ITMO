@@ -3,7 +3,7 @@ package mypokemons;
 import ru.ifmo.se.pokemon.Type;
 import mymoves.floette.*;
 
-public final class Floette extends Flabebe {
+public class Floette extends Flabebe {
     public Floette(String name, int level) {
         super(name, level);
         setType(Type.FAIRY);
