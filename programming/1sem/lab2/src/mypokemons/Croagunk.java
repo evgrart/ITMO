@@ -4,7 +4,7 @@ import ru.ifmo.se.pokemon.Pokemon;
 import ru.ifmo.se.pokemon.Type;
 import mymoves.croagunk.*;
 
-public final class Croagunk extends Pokemon {
+public class Croagunk extends Pokemon {
     public Croagunk(String name, int level) {
         super(name, level);
         setType(Type.POISON, Type.FIGHTING);
