@@ -24,4 +24,5 @@ time0 = timeit.timeit(check_0, number=100)
 time1 = timeit.timeit(check_0, number=100)
 time2 = timeit.timeit(check_0, number=100)
 
-print(time0, time1, time2, sep='\n')
+print(f'{time0} seconds - required task', f'{time1} seconds - 1 task', f'{time2} seconds - 2 task', sep='\n')
+
