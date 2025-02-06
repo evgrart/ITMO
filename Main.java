@@ -4,12 +4,6 @@ class Animal {
     }
 }
 
-class Dog extends Animal {
-    void bark() {
-        System.out.println("Dog barks");
-    }
-}
-
 class Cat extends Animal {
     void bark() {
         System.out.println("Cat meows");
