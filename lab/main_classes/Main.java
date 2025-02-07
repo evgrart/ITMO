@@ -1,20 +1,19 @@
 package lab.main_classes;
 
-import java.time.ZonedDateTime;
+import java.util.Scanner;
+
+import lab.utility.Reader;
 
 public class Main {
     public static void main(String[] args) {
-        StudyGroup group = StudyGroup.builder()
-                .id(1)
-                .name("Group A")
-                .coordinates(new Coordinates())
-                .creationDate(ZonedDateTime.now())
-                .studentsCount(50)
-                .expelledStudents(2)
-                .shouldBeExpelled(5)
-                .formOfEducation(FormOfEducation.FULL_TIME_EDUCATION)
-                .build();
-
-
+        boolean flag;
+        Scanner consoleRead = new Scanner(System.in);
+        do {
+            String[] splitedConsoleRead = consoleRead.nextLine().split(" ");
+            flag = Reader.getLine(splitedConsoleRead);
+        } while (flag);
     }
 }
+
+//проблема с потоками
+
