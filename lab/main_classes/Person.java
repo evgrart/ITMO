@@ -44,14 +44,17 @@ public class Person implements Validatable {
             this.name = name;
             return this;
         }
+
         public PersonBuilder birthday(java.time.LocalDateTime birthday) {
             this.birthday = birthday;
             return this;
         }
+
         public PersonBuilder height(long height) {
             this.height = height;
             return this;
         }
+
         public PersonBuilder weight(int weight) {
             this.weight = weight;
             return this;
