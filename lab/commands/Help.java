@@ -21,8 +21,7 @@ public class Help extends Command implements Executable {
                     "count_greater_than_group_admin groupAdmin : вывести количество элементов, значение поля groupAdmin которых больше заданного\n" +
                     "filter_greater_than_form_of_education formOfEducation : вывести элементы, значение поля formOfEducation которых больше заданного";
 
-    public boolean execute() {
+    public void execute() {
         System.out.println(helpMessage);
-        return true;
     }
 }

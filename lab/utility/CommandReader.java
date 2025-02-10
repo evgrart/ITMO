@@ -1,12 +1,11 @@
 package lab.utility;
 
 import lab.commands.*;
-
+import lab.main_classes.Main;
 import java.util.HashMap;
 
 public class CommandReader {
     HashMap<String, Command> commands = new HashMap<>();
-
     public CommandReader() {
         commands.put("help", new Help());
         commands.put("info", new Info());
@@ -26,13 +25,14 @@ public class CommandReader {
         commands.put("filter_greater_than_form_of_education", new FilterGreaterThanFormOfEducation());
     }
 
-    boolean runCommand(String line) {
+    void runCommand(String line) {
         if (commands.containsKey(line)) {
             Command command = commands.get(line);
-            return command.execute();
+            Main.commandsList.add(line);
+            command.execute();
         } else {
             Command command = new Command();
-            return command.execute();
+            command.execute();
         }
     }
 

@@ -6,11 +6,9 @@ import java.util.Scanner;
 
 
 public class Add extends Command implements Executable {
-    public boolean execute() {
+    public void execute() {
         Scanner sc = new Scanner(System.in);
         StudyGroup.StudyGroupBuilder group = StudyGroup.builder();
-        boolean flag = true;
         System.out.println("Введите имя группы:");
-        return true;
     }
 }

@@ -1,5 +1,5 @@
 package lab.interfaces;
 
 public interface Executable {
-    public boolean execute();
+    public void execute();
 }
