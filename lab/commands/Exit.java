@@ -31,6 +31,7 @@ public class Exit extends Command implements Executable, ValidatableCommand {
     @Override
     public void execute() {
         InputManager.runningCommand = false;
+        Main.commandsList.add("exit");
         System.out.println("Программа завершена");
 
         try (PrintWriter writer = new PrintWriter(new File("C:\\Users\\minec\\IdeaProjects\\Studing\\src\\lab\\utility\\history.txt"))) {

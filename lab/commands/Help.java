@@ -3,6 +3,7 @@ package lab.commands;
 import lab.interfaces.Executable;
 import lab.interfaces.ValidatableCommand;
 import lab.exceptions.InvalidInputException;
+import lab.main_classes.Main;
 import lab.utility.InputManager;
 
 public class Help extends Command implements Executable, ValidatableCommand {
@@ -45,6 +46,7 @@ public class Help extends Command implements Executable, ValidatableCommand {
     @Override
     public void execute() {
         InputManager.runningCommand = false;
+        Main.commandsList.add("help");
         System.out.println(helpMessage);
     }
 }

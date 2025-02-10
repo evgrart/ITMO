@@ -29,6 +29,7 @@ public class History extends Command implements Executable {
 
     @Override
     public void execute() {
+        Main.commandsList.add("history");
         InputManager.runningCommand = false;
         for (int i = Main.commandsList.size() - 1; i >= startIndex; i--) {
             System.out.println(Main.commandsList.get(i));

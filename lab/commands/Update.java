@@ -2,6 +2,7 @@ package lab.commands;
 
 import lab.interfaces.Executable;
 import lab.interfaces.ValidatableCommand;
+import lab.main_classes.Main;
 import lab.utility.InputManager;
 
 public class Update extends Command implements Executable, ValidatableCommand {
@@ -26,6 +27,7 @@ public class Update extends Command implements Executable, ValidatableCommand {
 
     @Override
     public void execute() {
+        Main.commandsList.add("update");
         InputManager.runningCommand = false;
     }
 }

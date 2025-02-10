@@ -41,17 +41,8 @@ public class StudyGroup {
         return id;
     }
 
-//    public boolean validate() {
-//        if (this.id <= 0) return false;
-//        else if (this.name == null || this.name.isEmpty()) return false;
-//        else if (this.coordinates == null) return false;
-//        else if (this.creationDate == null) return false;
-//        else if (this.studentsCount <= 0) return false;
-//        else if (this.expelledStudents <= 0) return false;
-//        else if (this.shouldBeExpelled <= 0) return false;
 //        else if (this.groupAdmin != null && !this.groupAdmin.validate()) return false;
-//        return true;
-//    }
+
 
     public static class StudyGroupBuilder {
         private int id;

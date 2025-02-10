@@ -31,7 +31,6 @@ public class CommandManager {
     void runCommand(String cm) {
         if (commands.containsKey(cm)) {
             Command command = commands.get(cm);
-            Main.commandsList.add(cm);
             if (command.validate()) {
                 command.execute();
             } else {

@@ -3,8 +3,10 @@ package lab.commands;
 import lab.exceptions.InvalidInputException;
 import lab.interfaces.Executable;
 import lab.interfaces.ValidatableCommand;
-import lab.utility.Reader;
+import lab.main_classes.Main;
 import lab.utility.InputManager;
+import lab.utility.Reader;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,8 +18,7 @@ public class ExecuteScript extends Command implements Executable, ValidatableCom
         try {
             if (this.parameter != null) {
                 return true;
-            }
-            else {
+            } else {
                 throw new InvalidInputException("У execute_script должен быть аргумент: путь до файла!");
             }
         } catch (NumberFormatException e) {
@@ -32,6 +33,7 @@ public class ExecuteScript extends Command implements Executable, ValidatableCom
 
     @Override
     public void execute() {
+        Main.commandsList.add("execute_script");
         InputManager.runningCommand = false;
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String[] input = reader.readLine().split(" ");
