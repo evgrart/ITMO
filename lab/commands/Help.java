@@ -1,10 +1,27 @@
 package lab.commands;
 
 import lab.interfaces.Executable;
+import lab.interfaces.ValidatableCommand;
+import lab.exceptions.InvalidInputException;
+import lab.utility.InputManager;
 
-public class Help extends Command implements Executable {
+public class Help extends Command implements Executable, ValidatableCommand {
     public Help(Object parameter) {
         super(parameter);
+    }
+
+    public boolean validate() {
+        try {
+            if (this.parameter == null) {
+                return true;
+            }
+            else {
+                throw new InvalidInputException("У help не должно быть аргументов!");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     private final String helpMessage =
@@ -25,7 +42,9 @@ public class Help extends Command implements Executable {
                     "count_greater_than_group_admin groupAdmin : вывести количество элементов, значение поля groupAdmin которых больше заданного\n" +
                     "filter_greater_than_form_of_education formOfEducation : вывести элементы, значение поля formOfEducation которых больше заданного";
 
+    @Override
     public void execute() {
+        InputManager.runningCommand = false;
         System.out.println(helpMessage);
     }
 }

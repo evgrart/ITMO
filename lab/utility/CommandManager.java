@@ -2,13 +2,14 @@ package lab.utility;
 
 import lab.commands.*;
 import lab.main_classes.Main;
+import lab.utility.InputManager;
 
 import java.util.HashMap;
 
-public class CommandReader {
+public class CommandManager {
     HashMap<String, Command> commands = new HashMap<>();
 
-    public CommandReader(Object parameter) {
+    public CommandManager(Object parameter) {
         commands.put("help", new Help(parameter));
         commands.put("info", new Info(parameter));
         commands.put("show", new Show(parameter));
@@ -31,9 +32,14 @@ public class CommandReader {
         if (commands.containsKey(cm)) {
             Command command = commands.get(cm);
             Main.commandsList.add(cm);
-            command.execute();
+            if (command.validate()) {
+                command.execute();
+            } else {
+                InputManager.create();
+            }
         } else {
             Command command = new Command(null);
+            InputManager.runningCommand = true;
             command.execute();
         }
     }
