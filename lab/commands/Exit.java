@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Exit extends Command implements Executable {
+    public Exit(Object parameter) {
+        super(parameter);
+    }
+
     public void execute() {
         System.out.println("Программа завершена");
 

@@ -3,6 +3,10 @@ package lab.commands;
 import lab.interfaces.Executable;
 
 public class Help extends Command implements Executable {
+    public Help(Object parameter) {
+        super(parameter);
+    }
+
     private final String helpMessage =
             "help : вывести справку по доступным командам\n" +
                     "info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)\n" +
