@@ -40,7 +40,7 @@ public class Help extends Command implements Executable, ValidatableCommand {
                     "history : вывести последние 8 команд (без их аргументов)\n" +
                     "remove_all_by_group_admin groupAdmin : удалить из коллекции все элементы, значение поля groupAdmin которого эквивалентно заданному\n" +
                     "count_greater_than_group_admin groupAdmin : вывести количество элементов, значение поля groupAdmin которых больше заданного\n" +
-                    "filter_greater_than_form_of_education formOfEducation : вывести элементы, значение поля formOfEducation которых больше заданного";
+                    "filter_greater_than_form_of_education formOfEducation : вывести элементы, значение поля formOfEducation которых больше заданного\n";
 
     @Override
     public void execute() {

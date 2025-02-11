@@ -40,7 +40,8 @@ public class ExecuteScript extends Command implements Executable, ValidatableCom
             String[] input = reader.readLine().split(" ");
             Reader.getLine(input);
         } catch (IOException e) {
-            System.out.println("Ошибка при чтении файла: " + e.getMessage());
+            System.out.println("Ошибка при чтении файла: " + e.getMessage() + "\n" + "Перепроверьте, " +
+                    "существует ли такой файл.\n");
         }
     }
 }
