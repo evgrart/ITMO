@@ -1,8 +1,6 @@
 package lab.utility;
 
 import lab.commands.*;
-import lab.main_classes.Main;
-import lab.utility.InputManager;
 
 import java.util.HashMap;
 
