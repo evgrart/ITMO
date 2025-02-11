@@ -4,8 +4,8 @@ import lab.interfaces.Executable;
 import lab.interfaces.ValidatableCommand;
 import lab.main_classes.Main;
 import lab.main_classes.StudyGroup;
-import lab.utility.InputManager;
 import lab.utility.GroupCreature;
+import lab.utility.InputManager;
 
 public class Update extends Command implements Executable, ValidatableCommand {
     public Update(Object parameter) {
@@ -33,12 +33,20 @@ public class Update extends Command implements Executable, ValidatableCommand {
         Integer id = Integer.parseInt((String) this.parameter);
         if (!Main.ids.containsKey(id)) {
             System.out.println("Объект по заданному id не найден\n");
-        }
-        else {
+        } else {
             Main.commandsList.add("update");
             lab.utility.HistoryParser.parseToFile();
             StudyGroup group = GroupCreature.createGroup();
             Main.ids.remove(id);
+            int index = -1;
+            for (StudyGroup el : Main.groups) {
+                if (el.getId() == id) {
+                    index = Main.groups.indexOf(el);
+                    break;
+                }
+
+            }
+            Main.groups.set(index, group);
             Main.ids.put(group.getId(), group);
             System.out.println("Объект под старым id " + id + " был изменён.\n" +
                     "id нового объекта - " + group.getId() + "\n");
