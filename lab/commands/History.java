@@ -34,5 +34,6 @@ public class History extends Command implements Executable {
         for (int i = Main.commandsList.size() - 1; i >= startIndex; i--) {
             System.out.println(Main.commandsList.get(i));
         }
+        System.out.println();
     }
 }

@@ -15,4 +15,5 @@ public class Main {
     }
 }
 
+//TODO: история должна сохраняться без exit
 

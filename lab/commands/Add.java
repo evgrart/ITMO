@@ -8,6 +8,7 @@ import lab.main_classes.FormOfEducation;
 import lab.main_classes.Main;
 import lab.main_classes.StudyGroup;
 import lab.utility.InputManager;
+import lab.utility.PersonCreature;
 
 
 public class Add extends Command implements Executable, ValidatableCommand {
@@ -57,10 +58,14 @@ public class Add extends Command implements Executable, ValidatableCommand {
                 System.out.print("Введите координату x группы: ");
                 Coordinates.CoordinatesBuilder coordinates = Coordinates.builder();
                 consoleRead = InputManager.consoleRead.nextLine();
-                coordinates.x(Double.parseDouble((String) consoleRead));
+                Double x = Double.parseDouble(consoleRead);
+                if (x < Double.MIN_VALUE || x > Double.MAX_VALUE) {
+                    throw new InvalidInputException("");
+                }
+                coordinates.x(x);
                 flag = false;
             } catch (InvalidInputException | NumberFormatException e) {
-                System.out.println("Координаты должны быть типа double и не могут быть null!");
+                System.out.println("Координата должна быть типа double (>= -2^63 и <= 2^63 - 1) и не могут быть null!");
             }
         } while (flag);
 
@@ -70,10 +75,14 @@ public class Add extends Command implements Executable, ValidatableCommand {
                 System.out.print("Введите координату y группы: ");
                 Coordinates.CoordinatesBuilder coordinates = Coordinates.builder();
                 consoleRead = InputManager.consoleRead.nextLine();
-                coordinates.y(Double.parseDouble((String) consoleRead));
+                Double y = Double.parseDouble(consoleRead);
+                if (y < Double.MIN_VALUE || y > Double.MAX_VALUE) {
+                    throw new InvalidInputException("");
+                }
+                coordinates.y(y);
                 flag = false;
             } catch (InvalidInputException | NumberFormatException e) {
-                System.out.println("Координаты должны быть типа double и не могут быть null!");
+                System.out.println("Координата должна быть типа double (>= -2^63 и <= 2^63 - 1) и не могут быть null!");
             }
         } while (flag);
 
@@ -82,17 +91,14 @@ public class Add extends Command implements Executable, ValidatableCommand {
             try {
                 System.out.print("Введите значение studentsCount группы: ");
                 consoleRead = InputManager.consoleRead.nextLine();
-
-                if (consoleRead.isEmpty() || Integer.parseInt(consoleRead) <= 0) {
-                    throw new InvalidInputException("Поле studentsCount должно быть целым положительным числом!");
+                Long studentsCount = Long.parseLong(consoleRead);
+                if (studentsCount <= 0 || studentsCount > Long.MAX_VALUE) {
+                    throw new InvalidInputException("Поле studentsCount должно быть целым положительным числом до 2^31 - 1 (тип long)!");
                 }
-
-                Integer studentsCount = Integer.parseInt(consoleRead);
-
                 group.studentsCount(studentsCount);
                 flag = false;
             } catch (InvalidInputException | NumberFormatException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Введите корректное положительное целое число до 2^31 - 1 (тип long)!");
             }
         } while (flag);
 
@@ -101,17 +107,14 @@ public class Add extends Command implements Executable, ValidatableCommand {
             try {
                 System.out.print("Введите значение expelledStudents группы: ");
                 consoleRead = InputManager.consoleRead.nextLine();
-
-                if (consoleRead.isEmpty() || Integer.parseInt(consoleRead) <= 0) {
+                Integer expelledStudents = Integer.parseInt(consoleRead);
+                if (expelledStudents <= 0 || expelledStudents > Integer.MAX_VALUE) {
                     throw new InvalidInputException("Поле expelledStudents должно быть целым положительным числом!");
                 }
-
-                Integer expelledStudents = Integer.parseInt(consoleRead);
-
                 group.expelledStudents(expelledStudents);
                 flag = false;
             } catch (InvalidInputException | NumberFormatException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Введите корректное положительное целое число!");
             }
         } while (flag);
 
@@ -120,17 +123,14 @@ public class Add extends Command implements Executable, ValidatableCommand {
             try {
                 System.out.print("Введите значение shouldBeExpelled группы: ");
                 consoleRead = InputManager.consoleRead.nextLine();
-
-                if (consoleRead.isEmpty() || Integer.parseInt(consoleRead) <= 0) {
-                    throw new InvalidInputException("Поле shouldBeExpelled должно быть целым положительным числом!");
+                Long shouldBeExpelled = Long.parseLong(consoleRead);
+                if (shouldBeExpelled <= 0 || shouldBeExpelled > Long.MAX_VALUE) {
+                    throw new InvalidInputException("Поле shouldBeExpelled должно быть целым положительным числом до 2^31 - 1 (тип long)!");
                 }
-
-                Integer shouldBeExpelled = Integer.parseInt(consoleRead);
-
                 group.shouldBeExpelled(shouldBeExpelled);
                 flag = false;
             } catch (InvalidInputException | NumberFormatException e) {
-                System.out.println(e.getMessage());
+                System.out.println("Введите корректное положительное целое число до 2^31 - 1 (тип long)!");
             }
         } while (flag);
 
@@ -149,5 +149,14 @@ public class Add extends Command implements Executable, ValidatableCommand {
                 System.out.println("Такого значения нет!");
             }
         } while (flag);
+
+        System.out.print("Нажмите enter, если НЕ хотите создать groupAdmin (иначе - любой символ): ");
+        consoleRead = InputManager.consoleRead.nextLine();
+        if (!consoleRead.isEmpty()) {
+            group.groupAdmin(PersonCreature.createPerson());
+        }
+
+        StudyGroup result = group.build();
+        System.out.println("Создание StudyGroup завершено! Его id: " + result.getId() + "\n");
     }
 }

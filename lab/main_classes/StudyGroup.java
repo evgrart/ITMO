@@ -1,9 +1,8 @@
 package lab.main_classes;
 
-import lab.interfaces.Validatable;
-
+import java.time.Duration;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
-
 
 public class StudyGroup {
 
@@ -33,15 +32,18 @@ public class StudyGroup {
         return new StudyGroupBuilder();
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getId() {
         return id;
     }
 
-//        else if (this.groupAdmin != null && !this.groupAdmin.validate()) return false;
+    @Override
+    public int hashCode() {
+        ZonedDateTime start = ZonedDateTime.parse("2025-02-11T11:00:00Z");
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("UTC")); // Текущая дата в UTC
+
+        int secondsPassed = Duration.between(start, now).getNano();
+        return secondsPassed;
+    }
 
 
     public static class StudyGroupBuilder {
