@@ -14,8 +14,7 @@ public class History extends Command implements Executable {
         try {
             if (this.parameter == null) {
                 return true;
-            }
-            else {
+            } else {
                 throw new InvalidInputException("У history не должно быть аргументов!");
             }
         } catch (NumberFormatException e) {
@@ -31,6 +30,7 @@ public class History extends Command implements Executable {
     public void execute() {
         Main.commandsList.add("history");
         InputManager.runningCommand = false;
+        lab.utility.HistoryParser.parseToFile();
         for (int i = Main.commandsList.size() - 1; i >= startIndex; i--) {
             System.out.println(Main.commandsList.get(i));
         }

@@ -1,8 +1,8 @@
 package lab.commands;
 
+import lab.exceptions.InvalidInputException;
 import lab.interfaces.Executable;
 import lab.interfaces.ValidatableCommand;
-import lab.exceptions.InvalidInputException;
 import lab.main_classes.Main;
 import lab.utility.InputManager;
 
@@ -15,8 +15,7 @@ public class Help extends Command implements Executable, ValidatableCommand {
         try {
             if (this.parameter == null) {
                 return true;
-            }
-            else {
+            } else {
                 throw new InvalidInputException("У help не должно быть аргументов!");
             }
         } catch (NumberFormatException e) {
@@ -47,6 +46,7 @@ public class Help extends Command implements Executable, ValidatableCommand {
     public void execute() {
         InputManager.runningCommand = false;
         Main.commandsList.add("help");
+        lab.utility.HistoryParser.parseToFile();
         System.out.println(helpMessage);
     }
 }

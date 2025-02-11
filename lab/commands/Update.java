@@ -29,5 +29,7 @@ public class Update extends Command implements Executable, ValidatableCommand {
     public void execute() {
         Main.commandsList.add("update");
         InputManager.runningCommand = false;
+        lab.utility.HistoryParser.parseToFile();
+        Integer id = Integer.parseInt((String) this.parameter);
     }
 }

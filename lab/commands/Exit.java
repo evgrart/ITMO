@@ -2,12 +2,9 @@ package lab.commands;
 
 import lab.exceptions.InvalidInputException;
 import lab.interfaces.Executable;
+import lab.interfaces.ValidatableCommand;
 import lab.main_classes.Main;
 import lab.utility.InputManager;
-import lab.interfaces.ValidatableCommand;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 public class Exit extends Command implements Executable, ValidatableCommand {
     public Exit(Object parameter) {
@@ -18,8 +15,7 @@ public class Exit extends Command implements Executable, ValidatableCommand {
         try {
             if (this.parameter == null) {
                 return true;
-            }
-            else {
+            } else {
                 throw new InvalidInputException("У exit не должно быть аргументов!");
             }
         } catch (NumberFormatException e) {
@@ -32,15 +28,8 @@ public class Exit extends Command implements Executable, ValidatableCommand {
     public void execute() {
         InputManager.runningCommand = false;
         Main.commandsList.add("exit");
+        lab.utility.HistoryParser.parseToFile();
         System.out.println("Программа завершена");
-
-        try (PrintWriter writer = new PrintWriter(new File("C:\\Users\\minec\\IdeaProjects\\Studing\\src\\lab\\utility\\history.txt"))) {
-            for (String command : Main.commandsList) {
-                writer.println(command);
-            }
-        } catch (IOException e) {
-            System.out.println("Ошибка при записи в файл: " + e.getMessage());
-        }
 
         System.exit(0);
     }

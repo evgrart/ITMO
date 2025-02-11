@@ -35,6 +35,7 @@ public class ExecuteScript extends Command implements Executable, ValidatableCom
     public void execute() {
         Main.commandsList.add("execute_script");
         InputManager.runningCommand = false;
+        lab.utility.HistoryParser.parseToFile();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String[] input = reader.readLine().split(" ");
             Reader.getLine(input);
