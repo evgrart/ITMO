@@ -8,7 +8,6 @@ import main_classes.Person;
 import main_classes.StudyGroup;
 import utility.CollectionManager;
 import utility.HistoryParser;
-import utility.InputManager;
 import utility.PersonCreature;
 
 public class RemoveAllByGroupAdmin extends Command implements Executable, ValidatableCommand {
@@ -30,7 +29,7 @@ public class RemoveAllByGroupAdmin extends Command implements Executable, Valida
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         boolean flag = true;
         Main.commandsList.add("remove_all_by_group_admin");
         HistoryParser.parseToFile();

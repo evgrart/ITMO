@@ -6,7 +6,6 @@ import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.CollectionManager;
 import utility.HistoryParser;
-import utility.InputManager;
 
 public class Info extends Command implements Executable, ValidatableCommand {
     public Info(Object parameter) {
@@ -27,7 +26,7 @@ public class Info extends Command implements Executable, ValidatableCommand {
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("info");
         HistoryParser.parseToFile();
         System.out.println("Информация о коллекции:");

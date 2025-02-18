@@ -6,6 +6,7 @@ import main_classes.Coordinates.CoordinatesBuilder;
 import main_classes.FormOfEducation;
 import main_classes.StudyGroup;
 import main_classes.StudyGroup.StudyGroupBuilder;
+import reader_manager.InputManager;
 
 public class GroupCreature {
     public static StudyGroup createGroup() {

@@ -6,7 +6,6 @@ import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.CollectionManager;
 import utility.HistoryParser;
-import utility.InputManager;
 
 public class Clear extends Command implements Executable, ValidatableCommand {
     public Clear(Object parameter) {
@@ -27,7 +26,7 @@ public class Clear extends Command implements Executable, ValidatableCommand {
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("clear");
         HistoryParser.parseToFile();
         System.out.println("Коллекция была очищена!\n");

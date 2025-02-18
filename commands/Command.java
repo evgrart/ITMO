@@ -2,7 +2,6 @@ package commands;
 
 import interfaces.Executable;
 import interfaces.ValidatableCommand;
-import utility.InputManager;
 
 public class Command implements Executable, ValidatableCommand {
     public Object parameter;
@@ -16,7 +15,7 @@ public class Command implements Executable, ValidatableCommand {
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         System.out.println("Такой команды нет! Используйте команду help, чтобы посмотреть список команд");
     }
 }

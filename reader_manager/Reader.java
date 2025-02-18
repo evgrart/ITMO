@@ -1,10 +1,11 @@
-package utility;
+package reader_manager;
 
 
 import exceptions.InvalidInputException;
 
 public class Reader {
-    public static void getLine(String[] line) {
+    public static void getLine(String read) {
+        String[] line = read.split(" ");
         try {
             if (line[0].equals("")) {
                 InputManager.startInput();

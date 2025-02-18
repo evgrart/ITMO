@@ -2,7 +2,7 @@ package main_classes;
 
 
 import utility.HistoryParser;
-import utility.InputManager;
+import reader_manager.InputManager;
 import utility.Parser;
 
 import java.time.ZonedDateTime;

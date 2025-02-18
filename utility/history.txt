@@ -2141,3 +2141,65 @@ execute_script
 execute_script
 execute_script
 help
+execute_script
+add {element}
+add {element}
+add {element}
+show
+execute_script
+execute_script
+execute_script
+add {element}
+show
+show
+add {element}
+add {element}
+add {element}
+add {element}
+show
+add {element}
+add {element}
+add {element}
+show
+add {element}
+add {element}
+show
+clear
+save
+show
+exit
+save
+show
+execute_script
+add {element}
+add {element}
+execute_script
+show
+execute_script
+execute_script
+execute_script
+execute_script
+add {element}
+show
+execute_script
+help
+show
+help
+add {element}
+save
+help
+help
+help
+help
+add {element}
+add {element}
+update
+show
+add {element}
+add {element}
+add {element}
+help
+show
+add {element}
+remove_by_id
+show

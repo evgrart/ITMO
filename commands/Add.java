@@ -8,7 +8,6 @@ import main_classes.StudyGroup;
 import utility.CollectionManager;
 import utility.GroupCreature;
 import utility.HistoryParser;
-import utility.InputManager;
 
 
 public class Add extends Command implements Executable, ValidatableCommand {
@@ -32,7 +31,7 @@ public class Add extends Command implements Executable, ValidatableCommand {
 
     @Override
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("add {element}");
         HistoryParser.parseToFile();
         System.out.println("Инициализировано создание объекта для добавления его в коллекцию");

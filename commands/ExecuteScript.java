@@ -5,8 +5,7 @@ import interfaces.Executable;
 import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.HistoryParser;
-import utility.InputManager;
-import utility.Reader;
+import reader_manager.Reader;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -35,19 +34,18 @@ public class ExecuteScript extends Command implements Executable, ValidatableCom
 
     public void execute() {
         Main.commandsList.add("execute_script");
-        InputManager.runningCommand = true;
+
         HistoryParser.parseToFile();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(this.FILE_NAME))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] input = line.split(" ");
-                Reader.getLine(input);
+                Reader.getLine(line);
             }
         } catch (IOException e) {
             System.out.println("Ошибка при чтении файла: " + e.getMessage() + "\nПерепроверьте, существует ли такой файл.\n");
         } catch (StackOverflowError e) {
-            System.out.println("Ай-ай-ай, рекурсия!\n");
+            System.out.println("Ай-ай-ай, рекурсия!");
         }
 
     }

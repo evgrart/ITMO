@@ -5,7 +5,6 @@ import interfaces.Executable;
 import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.HistoryParser;
-import utility.InputManager;
 
 public class History extends Command implements Executable, ValidatableCommand {
     private static final String FILE_PATH = "C:\\Users\\minec\\IdeaProjects\\Studing\\src\\lab\\utility\\history.txt";
@@ -31,7 +30,7 @@ public class History extends Command implements Executable, ValidatableCommand {
 
     public void execute() {
         Main.commandsList.add("history");
-        InputManager.runningCommand = true;
+        
         HistoryParser.parseToFile();
 
         for (int i = Main.commandsList.size() - 1; i >= this.startIndex; --i) {

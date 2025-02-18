@@ -7,7 +7,6 @@ import main_classes.Main;
 import main_classes.StudyGroup;
 import utility.CollectionManager;
 import utility.HistoryParser;
-import utility.InputManager;
 
 public class FilterGreaterThanFormOfEducation extends Command implements Executable, ValidatableCommand {
     public FilterGreaterThanFormOfEducation(Object parameter) {
@@ -32,7 +31,7 @@ public class FilterGreaterThanFormOfEducation extends Command implements Executa
     boolean flag = true;
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("filter_greater_than_form_of_education");
         HistoryParser.parseToFile();
         for (StudyGroup group : Main.groups) {

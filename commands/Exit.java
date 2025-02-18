@@ -5,7 +5,6 @@ import interfaces.Executable;
 import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.HistoryParser;
-import utility.InputManager;
 
 public class Exit extends Command implements Executable, ValidatableCommand {
     public Exit(Object parameter) {
@@ -26,7 +25,7 @@ public class Exit extends Command implements Executable, ValidatableCommand {
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("exit");
         HistoryParser.parseToFile();
         System.out.println("Программа завершена");

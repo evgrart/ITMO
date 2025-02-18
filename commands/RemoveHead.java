@@ -7,7 +7,6 @@ import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.CollectionManager;
 import utility.HistoryParser;
-import utility.InputManager;
 
 public class RemoveHead extends Command implements Executable, ValidatableCommand {
     public RemoveHead(Object parameter) {
@@ -33,7 +32,7 @@ public class RemoveHead extends Command implements Executable, ValidatableComman
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("remove_head");
         HistoryParser.parseToFile();
         System.out.println("Информация о первом элементе коллекции (после вывода он будет удалён):");

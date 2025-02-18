@@ -6,7 +6,6 @@ import interfaces.ValidatableCommand;
 import main_classes.Main;
 import main_classes.StudyGroup;
 import utility.HistoryParser;
-import utility.InputManager;
 import utility.PersonCreature;
 
 public class CountGreaterThanGroupAdmin extends Command implements Executable, ValidatableCommand {
@@ -28,7 +27,7 @@ public class CountGreaterThanGroupAdmin extends Command implements Executable, V
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("count_greater_than_group_admin");
         int count = 0;
         HistoryParser.parseToFile();

@@ -7,7 +7,6 @@ import main_classes.Main;
 import main_classes.StudyGroup;
 import utility.CollectionManager;
 import utility.HistoryParser;
-import utility.InputManager;
 
 public class Show extends Command implements Executable, ValidatableCommand {
     public Show(Object parameter) {
@@ -32,7 +31,7 @@ public class Show extends Command implements Executable, ValidatableCommand {
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("show");
         HistoryParser.parseToFile();
 

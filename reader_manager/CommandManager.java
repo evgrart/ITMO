@@ -1,4 +1,4 @@
-package utility;
+package reader_manager;
 
 import commands.*;
 
@@ -21,12 +21,13 @@ public class CommandManager {
         commands.put("remove_head", new RemoveHead(parameter));
         commands.put("remove_lower", new RemoveLower(parameter));
         commands.put("history", new History(parameter));
+        commands.put("sort", new Sort(parameter));
         commands.put("remove_all_by_group_admin", new RemoveAllByGroupAdmin(parameter));
         commands.put("count_greater_than_group_admin", new CountGreaterThanGroupAdmin(parameter));
         commands.put("filter_greater_than_form_of_education", new FilterGreaterThanFormOfEducation(parameter));
     }
 
-    void runCommand(String cm) {
+    public void runCommand(String cm) {
         if (commands.containsKey(cm)) {
             Command command = commands.get(cm);
             if (command.validate()) {
@@ -36,7 +37,7 @@ public class CommandManager {
             }
         } else {
             Command command = new Command(null);
-            InputManager.runningCommand = true;
+            
             command.execute();
         }
     }

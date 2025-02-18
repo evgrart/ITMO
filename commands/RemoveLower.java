@@ -6,7 +6,7 @@ import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.CollectionManager;
 import utility.HistoryParser;
-import utility.InputManager;
+import reader_manager.InputManager;
 
 public class RemoveLower extends Command implements Executable, ValidatableCommand {
     public RemoveLower(Object parameter) {
@@ -27,7 +27,7 @@ public class RemoveLower extends Command implements Executable, ValidatableComma
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("save");
         HistoryParser.parseToFile();
         if (Main.groups.size() == 0) {

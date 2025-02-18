@@ -5,7 +5,6 @@ import interfaces.Executable;
 import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.HistoryParser;
-import utility.InputManager;
 import utility.Parser;
 
 public class Save extends Command implements Executable, ValidatableCommand {
@@ -27,7 +26,7 @@ public class Save extends Command implements Executable, ValidatableCommand {
     }
 
     public void execute() {
-        InputManager.runningCommand = true;
+        
         Main.commandsList.add("save");
         HistoryParser.parseToFile();
         Parser.toJson();
