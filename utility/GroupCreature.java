@@ -17,7 +17,7 @@ public class GroupCreature {
         do {
             try {
                 System.out.print("Введите имя группы: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 if (consoleRead == null || consoleRead.isEmpty()) {
                     throw new InvalidInputException("Поле name должно быть отличным от null и пустой строки!");
                 }
@@ -36,7 +36,7 @@ public class GroupCreature {
         do {
             try {
                 System.out.print("Введите координату x группы: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 x = Double.parseDouble(consoleRead);
                 if (x < Double.MIN_VALUE || x > Double.MAX_VALUE) {
                     throw new InvalidInputException("");
@@ -55,7 +55,7 @@ public class GroupCreature {
         do {
             try {
                 System.out.print("Введите координату y группы: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 y = Double.parseDouble(consoleRead);
                 if (y < Double.MIN_VALUE || y > Double.MAX_VALUE) {
                     throw new InvalidInputException("");
@@ -74,7 +74,7 @@ public class GroupCreature {
         do {
             try {
                 System.out.print("Введите значение studentsCount группы: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 Long studentsCount = Long.parseLong(consoleRead);
                 if (studentsCount <= 0L || studentsCount > Long.MAX_VALUE) {
                     throw new InvalidInputException("Поле studentsCount должно быть целым положительным числом до 2^31 - 1 (тип long)!");
@@ -92,7 +92,7 @@ public class GroupCreature {
         do {
             try {
                 System.out.print("Введите значение expelledStudents группы: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 Integer expelledStudents = Integer.parseInt(consoleRead);
                 if (expelledStudents <= 0 || expelledStudents > Integer.MAX_VALUE) {
                     throw new InvalidInputException("Поле expelledStudents должно быть целым положительным числом!");
@@ -110,7 +110,7 @@ public class GroupCreature {
         do {
             try {
                 System.out.print("Введите значение shouldBeExpelled группы: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 Long shouldBeExpelled = Long.parseLong(consoleRead);
                 if (shouldBeExpelled <= 0L || shouldBeExpelled > Long.MAX_VALUE) {
                     throw new InvalidInputException("Поле shouldBeExpelled должно быть целым положительным числом до 2^31 - 1 (тип long)!");
@@ -128,7 +128,7 @@ public class GroupCreature {
         do {
             try {
                 System.out.print("Введите значение formOfEducation группы (DISTANCE_EDUCATION, FULL_TIME_EDUCATION, EVENING_CLASSES): ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 if (consoleRead.isEmpty()) {
                     group.formOfEducation(null);
                 } else {
@@ -142,7 +142,7 @@ public class GroupCreature {
         } while (flag);
 
         System.out.print("Нажмите enter, если НЕ хотите создать groupAdmin (иначе - любой символ): ");
-        consoleRead = InputManager.consoleRead.nextLine();
+        consoleRead = InputManager.readInput();
         if (!consoleRead.isEmpty()) {
             group.groupAdmin(PersonCreature.createPerson());
         }

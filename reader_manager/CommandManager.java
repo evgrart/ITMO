@@ -5,7 +5,7 @@ import commands.*;
 import java.util.HashMap;
 
 public class CommandManager {
-    HashMap<String, Command> commands = new HashMap<>();
+    public static HashMap<String, Command> commands = new HashMap<>();
 
     public CommandManager(Object parameter) {
         commands.put("help", new Help(parameter));
@@ -37,7 +37,7 @@ public class CommandManager {
             }
         } else {
             Command command = new Command(null);
-            
+
             command.execute();
         }
     }

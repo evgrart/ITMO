@@ -38,7 +38,7 @@ public class RemoveLower extends Command implements Executable, ValidatableComma
             do {
                 try {
                     System.out.println("Ввести id объекта. Все объекты коллекции меньше введённого будут удалены:");
-                    String line = InputManager.consoleRead.nextLine();
+                    String line = InputManager.readInput();
                     if (line == null || line.trim().isEmpty()) {
                         throw new IllegalArgumentException("id объекта не может быть пустым!");
                     }

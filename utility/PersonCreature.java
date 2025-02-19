@@ -18,7 +18,7 @@ public class PersonCreature {
         do {
             try {
                 System.out.print("Введите имя groupAdmin: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 if (consoleRead == null || consoleRead.isEmpty()) {
                     throw new InvalidInputException("Поле name должно быть отличным от null и пустой строки!");
                 }
@@ -35,7 +35,7 @@ public class PersonCreature {
         do {
             try {
                 System.out.print("Введите дату и время в формате yyyy-MM-dd HH:mm:ss: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 if (consoleRead == null) {
                     throw new InvalidInputException("");
                 }
@@ -54,7 +54,7 @@ public class PersonCreature {
         do {
             try {
                 System.out.print("Введите значение height: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 Long height = Long.parseLong(consoleRead);
                 if (height <= 0 || height > Long.MAX_VALUE) {
                     throw new InvalidInputException("");
@@ -72,7 +72,7 @@ public class PersonCreature {
         do {
             try {
                 System.out.print("Введите значение weight: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 Integer weight = Integer.parseInt(consoleRead);
                 if (weight <= 0 || weight > Integer.MAX_VALUE) {
                     throw new InvalidInputException("");
@@ -90,7 +90,7 @@ public class PersonCreature {
         do {
             try {
                 System.out.print("Введите значение passportID: ");
-                consoleRead = InputManager.consoleRead.nextLine();
+                consoleRead = InputManager.readInput();
                 if (consoleRead == null || consoleRead.isEmpty()) {
                     throw new InvalidInputException("Поле passportID должно быть отличным от null и пустой строки!");
                 }
