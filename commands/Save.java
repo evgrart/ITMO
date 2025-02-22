@@ -7,11 +7,18 @@ import main_classes.Main;
 import utility.HistoryParser;
 import utility.Parser;
 
+/**
+ * Сохраняет все элементы коллекции в json для дальнейшей инициализации коллекции в следующей сессии
+ *
+ * @see Parser
+ * @see Main#groups
+ */
 public class Save extends Command implements Executable, ValidatableCommand {
     public Save(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             if (this.parameter == null) {
@@ -25,8 +32,9 @@ public class Save extends Command implements Executable, ValidatableCommand {
         }
     }
 
+    @Override
     public void execute() {
-        
+
         Main.commandsList.add("save");
         HistoryParser.parseToFile();
         Parser.toJson();

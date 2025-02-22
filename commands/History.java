@@ -6,6 +6,9 @@ import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.HistoryParser;
 
+/**
+ * Показывает последние 8 введённых юзером команд
+ */
 public class History extends Command implements Executable, ValidatableCommand {
     private static final String FILE_PATH = "C:\\Users\\minec\\IdeaProjects\\Studing\\src\\lab\\utility\\history.txt";
     int startIndex;
@@ -15,6 +18,7 @@ public class History extends Command implements Executable, ValidatableCommand {
         this.startIndex = Math.max(0, Main.commandsList.size() - 8);
     }
 
+    @Override
     public boolean validate() {
         try {
             if (this.parameter == null) {
@@ -28,9 +32,10 @@ public class History extends Command implements Executable, ValidatableCommand {
         }
     }
 
+    @Override
     public void execute() {
         Main.commandsList.add("history");
-        
+
         HistoryParser.parseToFile();
 
         for (int i = Main.commandsList.size() - 1; i >= this.startIndex; --i) {

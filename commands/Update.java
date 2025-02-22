@@ -6,11 +6,17 @@ import main_classes.Main;
 import utility.CollectionManager;
 import utility.HistoryParser;
 
+/**
+ * Обновляет элемент коллекции на заданный юзером
+ *
+ * @see CollectionManager#update(Integer)
+ */
 public class Update extends Command implements Executable, ValidatableCommand {
     public Update(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             Integer.parseInt((String) this.parameter);
@@ -26,6 +32,7 @@ public class Update extends Command implements Executable, ValidatableCommand {
         }
     }
 
+    @Override
     public void execute() {
 
         Integer id = Integer.parseInt((String) this.parameter);

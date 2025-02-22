@@ -2,6 +2,9 @@ package main_classes;
 
 import java.time.ZonedDateTime;
 
+/**
+ * Класс, все объекты которого находятся в коллекции {@link Main#groups}
+ */
 public class StudyGroup {
     private int id;
     private String name;
@@ -13,13 +16,15 @@ public class StudyGroup {
     private FormOfEducation formOfEducation;
     private Person groupAdmin;
 
+    /**
+     * В конструкторе проверяем, если мы передаем значения id/creationDate по умолчанию (то есть мы создаем новый объект), то генерируем/устанавливаем поля; иначе - инициализируем значениями того же объекта из прошлой сессии
+     */
     private StudyGroup(int id, String name, Coordinates coordinates, ZonedDateTime creationDate, long studentsCount, int expelledStudents, long shouldBeExpelled, FormOfEducation formOfEducation, Person groupAdmin) {
         if (id == 0) {
             this.id = this.hashCode();
         } else {
             this.id = id;
         }
-
         if (creationDate == null) {
             this.creationDate = ZonedDateTime.now();
         } else {
@@ -35,6 +40,9 @@ public class StudyGroup {
         this.groupAdmin = groupAdmin;
     }
 
+    /**
+     * Возвращает билдер для дальнейшей инициализации Person
+     */
     public static StudyGroup.StudyGroupBuilder builder() {
         return new StudyGroup.StudyGroupBuilder();
     }
@@ -49,6 +57,9 @@ public class StudyGroup {
                 id, name, coordinates, creationDate, studentsCount, expelledStudents, shouldBeExpelled, formOfEducation, groupAdmin);
     }
 
+    /**
+     * Для парсинга в json ибо либами нельзя(
+     */
     public String toJson() {
         StringBuilder json = new StringBuilder("\n  {\n");
         json.append("  \"id\": ").append(id).append(",\n");
@@ -81,6 +92,9 @@ public class StudyGroup {
         return json.toString();
     }
 
+    /**
+     * Сравниваем объекты по их айдишнику. id детерминирован
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -101,6 +115,9 @@ public class StudyGroup {
         return formOfEducation;
     }
 
+    /**
+     * Билдер, чтоб не создавать миллион конструкторов
+     */
     public static class StudyGroupBuilder {
         private int id;
         private String name;
@@ -157,6 +174,9 @@ public class StudyGroup {
             return this;
         }
 
+        /**
+         * Собираем StudyGroup из инициализированных полей (незаданные поля принимают значения по умолчанию)
+         */
         public StudyGroup build() {
             return new StudyGroup(id, name, coordinates, creationDate, studentsCount, expelledStudents, shouldBeExpelled, formOfEducation, groupAdmin);
         }

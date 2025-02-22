@@ -8,11 +8,22 @@ import main_classes.StudyGroup;
 import main_classes.StudyGroup.StudyGroupBuilder;
 import reader_manager.InputManager;
 
+/**
+ * Класс для инициализации объекта StudyGroup (используется в командах add и update)
+ *
+ * @see StudyGroup
+ * @see commands.Add
+ * @see commands.Update
+ */
 public class GroupCreature {
+
+    /**
+     * @return Возвращает созданный юзером объект
+     * @exception InvalidInputException если поле, введённое юзером, не валидно
+     */
     public static StudyGroup createGroup() {
         boolean flag = true;
         StudyGroupBuilder group = StudyGroup.builder();
-
         String consoleRead;
         do {
             try {

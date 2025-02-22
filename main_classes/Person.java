@@ -2,6 +2,9 @@ package main_classes;
 
 import java.time.LocalDateTime;
 
+/**
+ * Класс описывает объект, который может быть полем {@link main_classes.StudyGroup}, а именно - groupAdmin
+ */
 public class Person {
     private String name;
     private LocalDateTime birthday;
@@ -17,6 +20,9 @@ public class Person {
         this.passportID = passportID;
     }
 
+    /**
+     * Сравнивает Person по всем полям. Если всех из них в точности равны, то это один и тот же чел
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,10 +61,16 @@ public class Person {
         return passportID;
     }
 
+    /**
+     * @return Возвращает билдер для дальнейшей инициализации Person
+     */
     public static Person.PersonBuilder builder() {
         return new Person.PersonBuilder();
     }
 
+    /**
+     * Билдер, чтоб не создавать миллион конструкторов
+     */
     public static class PersonBuilder {
         private String name;
         private LocalDateTime birthday;
@@ -91,6 +103,9 @@ public class Person {
             return this;
         }
 
+        /**
+         * Собираем Person из инициализированных полей (незаданные поля принимают значения по умолчанию)
+         */
         public Person build() {
             return new Person(name, birthday, height, weight, passportID);
         }

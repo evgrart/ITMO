@@ -5,11 +5,18 @@ import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.CollectionManager;
 
+/**
+ * Удаляет элемент коллекции по его id
+ *
+ * @see CollectionManager#remove_by_id(Integer)
+ * @see Main#ids
+ */
 public class RemoveById extends Command implements Executable, ValidatableCommand {
     public RemoveById(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             Integer.parseInt((String) this.parameter);
@@ -24,8 +31,9 @@ public class RemoveById extends Command implements Executable, ValidatableComman
         }
     }
 
+    @Override
     public void execute() {
-        
+
         Integer id = Integer.parseInt((String) this.parameter);
         if (!Main.ids.containsKey(id)) {
             System.out.println("Объект по заданному id не найден\n");

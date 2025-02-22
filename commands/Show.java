@@ -8,11 +8,17 @@ import main_classes.StudyGroup;
 import utility.CollectionManager;
 import utility.HistoryParser;
 
+/**
+ * Выводит информацию (поля) каждого элементы коллекции
+ *
+ * @see CollectionManager#show(StudyGroup)
+ */
 public class Show extends Command implements Executable, ValidatableCommand {
     public Show(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         if (Main.groups.size() == 0) {
             System.out.println("В коллекции нету ни одного элемента\n");
@@ -30,8 +36,9 @@ public class Show extends Command implements Executable, ValidatableCommand {
         }
     }
 
+    @Override
     public void execute() {
-        
+
         Main.commandsList.add("show");
         HistoryParser.parseToFile();
 

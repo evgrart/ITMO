@@ -8,11 +8,17 @@ import main_classes.Main;
 import utility.CollectionManager;
 import utility.HistoryParser;
 
+/**
+ * Выводит и удаляет (аналог .pop) первый элемент коллекции (с индексом 0)
+ *
+ * @see CollectionManager#remove_head()
+ */
 public class RemoveHead extends Command implements Executable, ValidatableCommand {
     public RemoveHead(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         if (Main.groups.size() == 0) {
             System.out.println("В коллекции нету ни одного элемента\n");
@@ -31,8 +37,9 @@ public class RemoveHead extends Command implements Executable, ValidatableComman
         }
     }
 
+    @Override
     public void execute() {
-        
+
         Main.commandsList.add("remove_head");
         HistoryParser.parseToFile();
         System.out.println("Информация о первом элементе коллекции (после вывода он будет удалён):");

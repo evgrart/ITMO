@@ -3,7 +3,14 @@ package reader_manager;
 
 import exceptions.InvalidInputException;
 
+/**
+ * Обработчик команд
+ */
 public class Reader {
+    /**
+     * @param read обрабатываемая строка
+     * @throws InvalidInputException если команда, введённая юзером, не валидна
+     */
     public static void getLine(String read) {
         String[] line = read.split(" ");
         try {

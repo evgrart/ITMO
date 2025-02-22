@@ -6,11 +6,15 @@ import interfaces.ValidatableCommand;
 import main_classes.Main;
 import utility.HistoryParser;
 
+/**
+ * Завершает сессию, работает засчёт закрытия всех потоков
+ */
 public class Exit extends Command implements Executable, ValidatableCommand {
     public Exit(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             if (this.parameter == null) {
@@ -24,8 +28,9 @@ public class Exit extends Command implements Executable, ValidatableCommand {
         }
     }
 
+    @Override
     public void execute() {
-        
+
         Main.commandsList.add("exit");
         HistoryParser.parseToFile();
         System.out.println("Программа завершена");

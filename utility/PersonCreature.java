@@ -3,13 +3,23 @@ package utility;
 import exceptions.InvalidInputException;
 import main_classes.Person;
 import main_classes.Person.PersonBuilder;
+import main_classes.StudyGroup;
 import reader_manager.InputManager;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * Класс для инициализации объекта Person (используется в {@link GroupCreature})
+ *
+ * @see StudyGroup
+ */
 public class PersonCreature {
+    /**
+     * @return возвращает инициализированный юзером Person
+     * @exception InvalidInputException если поле, введённое юзером, не валидно
+     */
     public static Person createPerson() {
         PersonBuilder person = Person.builder();
         boolean flag = true;

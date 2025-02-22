@@ -8,11 +8,19 @@ import main_classes.StudyGroup;
 import utility.HistoryParser;
 import utility.PersonCreature;
 
+/**
+ * Удаляет те элементы коллекции, у которых значение groupAdmin больше значения у заданной коллекции
+ * <p></p>
+ * GroupAdmin сортируются по сумме значения UCS каждого символа в строке PassportID
+ *
+ * @see main_classes.Person
+ */
 public class CountGreaterThanGroupAdmin extends Command implements Executable, ValidatableCommand {
     public CountGreaterThanGroupAdmin(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             if (this.parameter == null) {
@@ -26,8 +34,9 @@ public class CountGreaterThanGroupAdmin extends Command implements Executable, V
         }
     }
 
+    @Override
     public void execute() {
-        
+
         Main.commandsList.add("count_greater_than_group_admin");
         int count = 0;
         HistoryParser.parseToFile();
@@ -37,6 +46,9 @@ public class CountGreaterThanGroupAdmin extends Command implements Executable, V
             target += (int) c;
         }
         for (StudyGroup group : Main.groups) {
+            if (group.getGroupAdmin() == null) {
+                continue;
+            }
             String id = group.getGroupAdmin().getPassportID();
             int sum = 0;
             for (char c : id.toCharArray()) {

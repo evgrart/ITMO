@@ -10,11 +10,18 @@ import utility.CollectionManager;
 import utility.HistoryParser;
 import utility.PersonCreature;
 
+/**
+ * Удаляет все элементы коллекции, у которых GroupAdmin равен инициализированному юзером (сравнение идёт по всем полям)
+ *
+ * @see Person
+ * @see PersonCreature
+ */
 public class RemoveAllByGroupAdmin extends Command implements Executable, ValidatableCommand {
     public RemoveAllByGroupAdmin(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             if (this.parameter == null) {
@@ -28,8 +35,9 @@ public class RemoveAllByGroupAdmin extends Command implements Executable, Valida
         }
     }
 
+    @Override
     public void execute() {
-        
+
         boolean flag = true;
         Main.commandsList.add("remove_all_by_group_admin");
         HistoryParser.parseToFile();

@@ -4,6 +4,9 @@ import commands.*;
 
 import java.util.HashMap;
 
+/**
+ * Класс, отвечающий за выполнение команд
+ */
 public class CommandManager {
     public static HashMap<String, Command> commands = new HashMap<>();
 
@@ -27,6 +30,9 @@ public class CommandManager {
         commands.put("filter_greater_than_form_of_education", new FilterGreaterThanFormOfEducation(parameter));
     }
 
+    /**
+     * Если команда найдена, то дальше проверяется на валидность и проверяется, если нет, то вызывается препок {@link Command}
+     */
     public void runCommand(String cm) {
         if (commands.containsKey(cm)) {
             Command command = commands.get(cm);

@@ -1,12 +1,21 @@
 package utility;
 
+import main_classes.Main;
+
 import java.io.*;
 import java.util.List;
-import main_classes.Main;
+
+/**
+ * Сериализует в {@link Main#commandsList} / десериализует в файлик .txt (для хранения истории за предыдущие сеансы) предыдущие команды юзера
+ *
+ * @see commands.History
+ */
 
 public class HistoryParser {
 
-    // Метод для считывания команд из файла в список
+    /**
+     * Десериализация в {@link Main#commandsList}
+     */
     public static void parseToList() {
         File file = new File("C:\\Users\\minec\\IdeaProjects\\Studing\\src\\utility\\history.txt");
 
@@ -22,6 +31,9 @@ public class HistoryParser {
         }
     }
 
+    /**
+     * Парсим из {@link Main#commandsList} в файл-буфер
+     */
     public static void parseToFile() {
         File file = new File("C:\\Users\\minec\\IdeaProjects\\Studing\\src\\utility\\history.txt");
 

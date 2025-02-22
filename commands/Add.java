@@ -9,7 +9,10 @@ import utility.CollectionManager;
 import utility.GroupCreature;
 import utility.HistoryParser;
 
-
+/**
+ * Добавляет элемент в коллекцию
+ * @see CollectionManager#add(StudyGroup)
+ */
 public class Add extends Command implements Executable, ValidatableCommand {
     public Add(Object parameter) {
         super(parameter);

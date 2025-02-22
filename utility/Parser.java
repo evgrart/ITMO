@@ -12,9 +12,17 @@ import java.time.format.DateTimeFormatter;
 
 import static main_classes.Main.groups;
 
+/**
+ * Парсер из/в json
+ *
+ * @see commands.Save
+ */
 public class Parser {
     private static String FILE_NAME = "C:\\Users\\minec\\IdeaProjects\\Studing\\src\\utility\\collection.json";
 
+    /**
+     * Парсим в json
+     */
     public static void toJson() {
         StringBuilder json = new StringBuilder("[");
 
@@ -34,6 +42,9 @@ public class Parser {
         }
     }
 
+    /**
+     * Парсим из json
+     */
     public static void fromJson() {
         StudyGroup.StudyGroupBuilder group = null;
         Coordinates.CoordinatesBuilder coordinates = null;

@@ -7,11 +7,17 @@ import main_classes.Main;
 import utility.CollectionManager;
 import utility.HistoryParser;
 
+/**
+ * Выводит информацию и коллекции: размер, дату инициализации и тип коллекции
+ *
+ * @see CollectionManager#info()
+ */
 public class Info extends Command implements Executable, ValidatableCommand {
     public Info(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             if (this.parameter == null) {
@@ -25,8 +31,9 @@ public class Info extends Command implements Executable, ValidatableCommand {
         }
     }
 
+    @Override
     public void execute() {
-        
+
         Main.commandsList.add("info");
         HistoryParser.parseToFile();
         System.out.println("Информация о коллекции:");

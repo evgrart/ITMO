@@ -7,11 +7,17 @@ import main_classes.Main;
 import utility.CollectionManager;
 import utility.HistoryParser;
 
+/**
+ * Очищает коллекцию
+ *
+ * @see CollectionManager#clear()
+ */
 public class Clear extends Command implements Executable, ValidatableCommand {
     public Clear(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             if (this.parameter == null) {
@@ -25,8 +31,9 @@ public class Clear extends Command implements Executable, ValidatableCommand {
         }
     }
 
+    @Override
     public void execute() {
-        
+
         Main.commandsList.add("clear");
         HistoryParser.parseToFile();
         System.out.println("Коллекция была очищена!\n");

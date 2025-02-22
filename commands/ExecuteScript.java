@@ -11,6 +11,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
+/**
+ * Выполнений скрипт, расположенный по указанному пути (перенаправляем файл в стандартный ввод)
+ */
 public class ExecuteScript extends Command implements Executable, ValidatableCommand {
     private final String FILE_NAME;
 
@@ -19,6 +22,7 @@ public class ExecuteScript extends Command implements Executable, ValidatableCom
         this.FILE_NAME = (String) this.parameter;
     }
 
+    @Override
     public boolean validate() {
         try {
             if (this.parameter != null) {
@@ -32,6 +36,7 @@ public class ExecuteScript extends Command implements Executable, ValidatableCom
         }
     }
 
+    @Override
     public void execute() {
         Main.commandsList.add("execute_script");
         HistoryParser.parseToFile();

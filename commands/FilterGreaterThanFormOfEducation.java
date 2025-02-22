@@ -8,11 +8,17 @@ import main_classes.StudyGroup;
 import utility.CollectionManager;
 import utility.HistoryParser;
 
+/**
+ * Выводит все элементы коллекции, у которых значение FormOfEducation больше заданного. Элементы сравниваются по их порядку в {@link FormOfEducation}
+ *
+ * @see CollectionManager#show(StudyGroup)
+ */
 public class FilterGreaterThanFormOfEducation extends Command implements Executable, ValidatableCommand {
     public FilterGreaterThanFormOfEducation(Object parameter) {
         super(parameter);
     }
 
+    @Override
     public boolean validate() {
         try {
             form = FormOfEducation.valueOf(String.valueOf(parameter));
@@ -30,8 +36,9 @@ public class FilterGreaterThanFormOfEducation extends Command implements Executa
     FormOfEducation form;
     boolean flag = true;
 
+    @Override
     public void execute() {
-        
+
         Main.commandsList.add("filter_greater_than_form_of_education");
         HistoryParser.parseToFile();
         for (StudyGroup group : Main.groups) {
@@ -42,7 +49,7 @@ public class FilterGreaterThanFormOfEducation extends Command implements Executa
             }
         }
         if (flag) {
-            System.out.println("В коллекции нет объект, у которых значение FormOfEducation больше, чем " + form);
+            System.out.println("В коллекции нет объектов, у которых значение FormOfEducation больше, чем " + form);
         }
         System.out.println();
     }
